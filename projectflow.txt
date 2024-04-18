@@ -1,0 +1,8 @@
+Create new repo on git and clone it in local.
+Create your template.py file and run it.
+Add requirements.txt (listed modules taken from yolo V7 git repo)
+Add code to setup.py file
+Now setup your venv:
+    *conda create -n safety python=3.8 -y
+    *conda activate safety
+    *pip install -r requirements.txt
