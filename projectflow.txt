@@ -10,3 +10,4 @@ Now we will setup our logging and exception:
     *Add code to isd.logger.__init__.py
     *Add code to isd.exception.__init__.py
     *Also add code to isd.utils.main_utils.py
+Flowchart, Notebook added
