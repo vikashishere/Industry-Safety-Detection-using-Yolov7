@@ -6,3 +6,7 @@ Now setup your venv:
     *conda create -n safety python=3.8 -y
     *conda activate safety
     *pip install -r requirements.txt
+Now we will setup our logging and exception:
+    *Add code to isd.logger.__init__.py
+    *Add code to isd.exception.__init__.py
+    *Also add code to isd.utils.main_utils.py
