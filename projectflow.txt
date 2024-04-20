@@ -11,3 +11,8 @@ Now we will setup our logging and exception:
     *Add code to isd.exception.__init__.py
     *Also add code to isd.utils.main_utils.py
 Flowchart, Notebook added
+Now we will perform Notebook experiment on Google Colab:
+    * Add the zipped "isd_data_mini" data file and "YOLOv7_on_Custom_Data.ipynb" 
+      notebook to your gdrive and open the notebook.
+    * From Colab notebook screen > runtime > change runtime type > T4 GPU > save
+      > click 'connect' on right top corner
