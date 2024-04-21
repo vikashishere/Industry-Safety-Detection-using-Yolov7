@@ -16,3 +16,35 @@ Now we will perform Notebook experiment on Google Colab:
       notebook to your gdrive and open the notebook.
     * From Colab notebook screen > runtime > change runtime type > T4 GPU > save
       > click 'connect' on right top corner
+    * Start executing cells one by one as per the commented instructions.
+Now we move to Data Ingestion component:
+    * First we need to setup AWS cli in local > Google: AWS cli download > goto first link
+      > choose OS > download the .msi file > simple install process > restart IDE/system
+    * Go to AWS console.
+    * First, create an IAM user(name: yolov7) and download access key csv
+    * We need to configure this access key in local bash terminal > aws configure
+      > input access&secret key, region and output format(hit enter)
+    * Now we will create one S3 bucket > name: mlops-isd-data > uncheck: block access
+      > check acknowledge > create bucket
+    * Open bucket and upload the data (zipped file)
+    * Now we need to write some code to get this data from S3 bucket.
+      > work on isd.configuration.s3_operations.py
+    * Finally we start the work on "Data Ingestion" component as per our workflow
+      > we add constants to isd.constants.training_pipeline.__init__.py
+      > Update the isd.entity.config_entity.py
+      > Update the isd.entity.artifacts_entity.py
+      > Now we update component: "data_ingestion.py"
+      > Update the pipeline
+      > Update app.py
+      > Add "artifacts/*" to .gitignore file
+
+
+
+
+Workflow:
+- constants
+- config_entity
+- artifact_entity
+- components
+- pipeline
+- app.py
