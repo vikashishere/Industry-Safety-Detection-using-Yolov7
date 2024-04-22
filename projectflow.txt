@@ -54,6 +54,7 @@ Next is to work on the component - "model_trainer" as per workflow but execute t
   artifacts.timestamp.model_trainer.best.pt file. Also, remove .pt from .gitignore file(if exists) 
   and add "yolov7.pt" before pushing it to git.
 
+Next is to work on component: "model_pusher"
 
 
 
