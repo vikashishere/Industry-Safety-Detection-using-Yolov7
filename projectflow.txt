@@ -38,6 +38,23 @@ Now we move to Data Ingestion component:
       > Update app.py
       > Add "artifacts/*" to .gitignore file
 
+Now, following our workflow, we work on the Data Validation component to make sure we
+  have all the required dir and files inside "feature_store" dir after the zip operation.
+
+Before moving to model_trainer component, we need to download yolov7 project from its git repo. (One time task)
+  > Execute on terminal: "git clone https://github.com/WongKinYiu/yolov7" This step might through error
+    sometimes due to network issue on local or Github side.
+  > Create a copy of yolov7.data.coco.yaml and name is as (custom.yaml)
+  > Edit your custom.yaml as per the code given in notebook directory
+  > Create a copy of yolov7.cfg.training.yolov7.yaml and name is as (custom_yolov7.yaml)
+  > Edit your custom_yolov7.yaml (nc: 5)
+
+Next is to work on the component - "model_trainer" as per workflow but execute the 
+  "python app.py" from bash terminal this time. Once completed, you will get the best model as 
+  artifacts.timestamp.model_trainer.best.pt file. Also, remove .pt from .gitignore file(if exists) 
+  and add "yolov7.pt" before pushing it to git.
+
+
 
 
 

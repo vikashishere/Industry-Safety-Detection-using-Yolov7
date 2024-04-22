@@ -3,3 +3,24 @@ val: /content/drive/MyDrive/Colab-Notebooks/val.txt
 
 nc: 5
 names: ['Helmet','Goggles','Jacket','Gloves','Footwear']
+
+# # Instead of hardcoding the value of train and val, we can also set it up via:
+# import os
+
+# # Get the current working directory
+# current_dir = os.path.abspath(__file__)
+
+# # Root directory of your project (assuming the root directory contains val.txt)
+# root_dir = os.path.dirname(current_dir)
+
+# # File name
+# file_name = "var.txt"
+
+# # Construct the path
+# var_path = os.path.join(root_dir, file_name)
+
+# # Replace '\' with '\\'
+# var_path = var_path.replace('\\', '\\\\')
+
+# # Print the path
+# print(var_path)

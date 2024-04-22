@@ -1,0 +1,5 @@
+train: C:\\Users\\Personal\\Desktop\\DSMP2023-2024\\Self Researched Projects\\Proj-5\\Industry-Safety-Detection-using-Yolov7\\train.txt
+val: C:\\Users\\Personal\\Desktop\\DSMP2023-2024\\Self Researched Projects\\Proj-5\\Industry-Safety-Detection-using-Yolov7\\val.txt
+
+nc: 5
+names: ['Helmet', 'Goggles', 'Jacket', 'Gloves', 'Footwear']
