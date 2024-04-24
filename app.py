@@ -31,7 +31,6 @@ def trainRoute():
     obj = TrainPipeline()
     obj.run_pipeline()
     return 
-    
 
 
 @app.route("/")
