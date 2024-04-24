@@ -22,6 +22,9 @@ Now we move to Data Ingestion component:
       > choose OS > download the .msi file > simple install process > restart IDE/system
     * Go to AWS console.
     * First, create an IAM user(name: yolov7) and download access key csv
+      Also, instead of full AdministratorAccess to user, we can also set it up for:
+      1. AmazonEC2ContainerRegistryFullAccess
+      2. AmazonEC2FullAccess
     * We need to configure this access key in local bash terminal > aws configure
       > input access&secret key, region and output format(hit enter)
     * Now we will create one S3 bucket > name: mlops-isd-data > uncheck: block access
@@ -65,7 +68,35 @@ We will next work on the CICD:
   > Setup your .github.worflows.cicd.yaml file
   > Setup your dockerfile
   > Add items to .dockerignore file (e.g. flowchart, notebook, env and log etc)
+  > We will also need one ECR repo -> Region: us-east-1 -> Create -> private
+    -> name: yolov7app -> create repo -> copy URI
+  > Now we create an EC2 Ubutnu machine -> name: safety-machine -> 
+    OS: Ubuntu 20.04 (go for GPU machine in prod) -> t2.large 8GB -> create new key-pair
+    -> name: yolov7-key -> rsa -> .pem -> create -> select new key-pair -> allow all traffic
+    -> config storage: 32GB -> Launch -> Go to Instance id -> Connect (Coz we need to install docker)
+    -> perform below commands in sequence in your EC2 machine:
 
+      #optinal
+      sudo apt-get update -y 
+      sudo apt-get upgrade
+
+      #required
+      curl -fsSL https://get.docker.com -o get-docker.sh 
+      sudo sh get-docker.sh
+      sudo usermod -aG docker ubuntu 
+      newgrp docker
+  > Now we need to configure a self hosted runner on EC2 instance:
+    Go to Github project settings -> Actions -> Runners -> Add new self-hosted runner
+    -> choose OS (Linux) -> Run all the given command on your EC2 instance (if asked name: self-hosted)
+    -> Once done, go back to github runners: state should be "idle"
+  > Next is to add all secret variables to Github:
+    -> Go to github project setting -> Secret and Variables -> Action 
+    -> New Repository Secret for:
+       AWS_ACCESS_KEY_ID =
+       AWS_SECRET_ACCESS_KEY =
+       AWS_REGION = us-east-1
+       AWS_ECR_LOGIN_URI = 020866158197.dkr.ecr.us-east-1.amazonaws.com
+       ECR_REPOSITORY_NAME = yolov7app
 
 
 

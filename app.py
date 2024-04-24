@@ -39,7 +39,6 @@ def home():
     return render_template("index.html")
 
 
-
 @app.route("/predict", methods=['POST','GET'])
 @cross_origin()
 def predictRoute():
@@ -47,7 +46,9 @@ def predictRoute():
         image = request.json['image']
         decodeImage(image, clApp.filename)
 
-       
+        # we can add the code here to download the model (best.pt) from S3 bucket if the 
+        # model is not there in local dir. This code of downloading from s3 is there in
+        # USVisa project.
         os.system("cd yolov7/ && python detect.py --weights best.pt  --source ../data/inputImage.jpg")
 
         opencodedbase64 = encodeImageIntoBase64("yolov7/runs/detect/exp/inputImage.jpg")
