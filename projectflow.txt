@@ -66,6 +66,8 @@ We move to work on creating our user app for prediction:
 
 We will next work on the CICD:
   > Setup your .github.worflows.cicd.yaml file
+    ** Please note, at the end my CICD pipeline was failing due to (sudo apt-get update) in
+       Continuous Delivery stage so it worked when I removed it. This step is optional.
   > Setup your dockerfile
   > Add items to .dockerignore file (e.g. flowchart, notebook, env and log etc)
   > We will also need one ECR repo -> Region: us-east-1 -> Create -> private
@@ -77,14 +79,15 @@ We will next work on the CICD:
     -> perform below commands in sequence in your EC2 machine:
 
       #optinal
-      sudo apt-get update -y 
+      sudo apt-get update -y
       sudo apt-get upgrade
 
       #required
-      curl -fsSL https://get.docker.com -o get-docker.sh 
+      curl -fsSL https://get.docker.com -o get-docker.sh
       sudo sh get-docker.sh
-      sudo usermod -aG docker ubuntu 
+      sudo usermod -aG docker ubuntu
       newgrp docker
+
   > Now we need to configure a self hosted runner on EC2 instance:
     Go to Github project settings -> Actions -> Runners -> Add new self-hosted runner
     -> choose OS (Linux) -> Run all the given command on your EC2 instance (if asked name: self-hosted)
@@ -98,6 +101,9 @@ We will next work on the CICD:
        AWS_ECR_LOGIN_URI = 020866158197.dkr.ecr.us-east-1.amazonaws.com
        ECR_REPOSITORY_NAME = yolov7app
   > Now push your code to git so that CICD pipeline can run.
+  > Once CICD is complete, add 8080 port to your EC2 inbound rules and check deployment (ip address: 8080)
+
+Finally delete all AWS paid services.
 
 
 
