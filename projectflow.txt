@@ -54,7 +54,19 @@ Next is to work on the component - "model_trainer" as per workflow but execute t
   artifacts.timestamp.model_trainer.best.pt file. Also, remove .pt from .gitignore file(if exists) 
   and add "yolov7.pt" before pushing it to git.
 
-Next is to work on component: "model_pusher"
+Next is to work on component: "model_pusher" as per our workflow.
+
+We move to work on creating our user app for prediction:
+  > Add template.index.html (title on line 200)
+  > Now add code to app.py (as per line 51, your best.pt model should be there within yolov7 dir)
+  > Run your "python app.py" from bash terminal (powershell might do issue)
+
+We will next work on the CICD:
+  > Setup your .github.worflows.cicd.yaml file
+  > Setup your dockerfile
+  > Add items to .dockerignore file (e.g. flowchart, notebook, env and log etc)
+
+
 
 
 
